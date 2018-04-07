@@ -5,16 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab_Matrices"
         mc:Ignorable="d"
-        Title="MainWindow" Height="768" Width="1366" Loaded="Window_Loaded">
-	<Grid Name="MainGrid">
-		<Label HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="25">Множення матриць</Label>
-		<Grid HorizontalAlignment="Left" VerticalAlignment="Center" Width="350" Height="350" Name="LeftMatrixGrid">
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition>
+		
+        Title="MainWindow" Height="600" Width="900" Loaded="Window_Loaded" BorderBrush="#FFEC2A2A" OpacityMask="#FF9CE025">
+	<Window.Resources>
+		<Style x:Key="RoundBtn" TargetType="Button">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="Button">
+						<Border CornerRadius="20" Background="{TemplateBinding Background}"
+                                BorderThickness="2">
+							<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
 
-				</ColumnDefinition>
-			</Grid.ColumnDefinitions>
+							</ContentPresenter>
+						</Border>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+			<Setter Property="Background">
+				<Setter.Value>
+					<ImageBrush ImageSource="Resources/WEB_CTFBMF.jpg"></ImageBrush>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</Window.Resources>
+	<Window.Background>
+		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FFE2E4D0" Offset="0"/>
+			<GradientStop Color="#FF98A48C" Offset="1"/>
+		</LinearGradientBrush>
+	</Window.Background>
+	<Grid Name="MainGrid">
+
+		<Label HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="25">Множення матриць</Label>
+		<Grid HorizontalAlignment="Left" VerticalAlignment="Center" Width="190" Height="190" Name="LeftMatrixGrid" Background="AliceBlue">
+
 		</Grid>
-		<TextBox HorizontalAlignment="Left" TextAlignment="Center" Height="62" Margin="350,544,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="72"/>
+		<Label VerticalAlignment="Center" Margin="255,0,0,0" HorizontalAlignment="Left" Content="X" FontSize="25"></Label>
+		<Label VerticalAlignment="Center" HorizontalAlignment="Right" Content="=" FontSize="25" Margin="0,0,255,0"></Label>
+		<Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="190" Height="190" Name="RightMatrixGrid" Background="AliceBlue">
+
+		</Grid>
+		<Grid HorizontalAlignment="Right" VerticalAlignment="Center" Width="190" Height="190" Name="ResultGrid" Background="Azure">
+
+		</Grid>
+		<Button VerticalAlignment="Center" Margin="0,370,0,0" HorizontalAlignment="Center" 
+				Width="120" Height="70" Style="{StaticResource RoundBtn}" 
+				Content="Обчислити" FontSize="18" Foreground="AliceBlue" Click="Button_Click">
+
+		</Button>
+
 	</Grid>
+
 </Window>
